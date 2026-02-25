@@ -1,0 +1,20 @@
+[package]
+name = "femtoclaw-policy"
+version = "1.0.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "FemtoClaw Policy Engine — capability gating and authorization enforcement"
+repository = "https://github.com/femtoclaw/femtoclaw-policy.git"
+
+[dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "1"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+opt-level = "z"
